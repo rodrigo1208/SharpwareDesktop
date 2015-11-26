@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PesquisarCliente));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.cpfMbx = new System.Windows.Forms.MaskedTextBox();
             this.botaoAcessarPesquisaCliente1 = new TelasSharpWare.View.Botoes.BotaoAcessarPesquisaCliente();
             this.nomeTbx = new System.Windows.Forms.TextBox();
@@ -67,6 +68,7 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(164)))), ((int)(((byte)(180)))));
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.cpfMbx);
             this.panel1.Controls.Add(this.botaoAcessarPesquisaCliente1);
             this.panel1.Controls.Add(this.nomeTbx);
@@ -80,8 +82,21 @@
             this.panel1.Location = new System.Drawing.Point(72, 61);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(681, 473);
+            this.panel1.Size = new System.Drawing.Size(681, 495);
             this.panel1.TabIndex = 1;
+            // 
+            // button1
+            // 
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.button1.Location = new System.Drawing.Point(546, 451);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(127, 38);
+            this.button1.TabIndex = 21;
+            this.button1.Text = "Gerar Relatorio";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // cpfMbx
             // 
@@ -169,7 +184,7 @@
             this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(216, 10);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(291, 41);
+            this.label3.Size = new System.Drawing.Size(293, 41);
             this.label3.TabIndex = 8;
             this.label3.Text = "Pesquisar cliente";
             // 
@@ -418,5 +433,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Nome;
         private System.Windows.Forms.DataGridViewTextBoxColumn CPF;
         private System.Windows.Forms.DataGridViewTextBoxColumn situacao;
+        private System.Windows.Forms.Button button1;
     }
 }

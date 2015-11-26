@@ -33,15 +33,20 @@ namespace TelasSharpWare
                     {
                         login.Close();
                     }
-                    if (login.DialogResult == DialogResult.Ignore)
+                    if (login.DialogResult == DialogResult.No)
                         MessageBox.Show("Permissão negada");
                     if (login.DialogResult == DialogResult.Retry)
                         MessageBox.Show("Login ou senha incoreta");
                 }
 
-                else if (entrada.DialogResult == DialogResult.Abort)
+                if (entrada.DialogResult == DialogResult.Abort)
                 {
-                    if (login.ShowDialog() == DialogResult.OK)
+                    login.ShowDialog();
+                    if (login.DialogResult == DialogResult.OK)
+                    {
+                        Application.Run(new PesquisarProduto());
+                    }
+                    if (login.DialogResult == DialogResult.No)
                     {
                         Application.Run(new PesquisarProduto());
                     }

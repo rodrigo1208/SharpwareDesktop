@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TelasSharpWare.DAO;
 using TelasSharpWare.Model;
+  using TelasSharpWare.View.Relatorio;
 
 namespace TelasSharpWare.Controller
 {
@@ -13,7 +14,9 @@ namespace TelasSharpWare.Controller
         private Cliente _cliente;
         private ClienteDao _clienteDao;
         private TelefoneDao _telefoneDao;
+        private RelatorioDao _relatorioDao;
         private ConnectionManager _connectionManager;
+        private ExibirRelatorio _relatorio;
 
         public ClienteController()
         {
@@ -21,6 +24,7 @@ namespace TelasSharpWare.Controller
             _connectionManager = new ConnectionManager(con);
             _clienteDao = new ClienteDao(con);
             _telefoneDao = new TelefoneDao(con);
+            _relatorioDao = new RelatorioDao(con);
         }
 
         public bool CadastrarCliente(Cliente cliente)
@@ -86,6 +90,16 @@ namespace TelasSharpWare.Controller
             {
                 _clienteDao.InativarCliente(id);
             }
+        }
+
+        public void AbreRelatorio(int idCliente)
+        {
+            using (_connectionManager.Open())
+            {
+                  ExibirRelatorio exibirRelatorio = new ExibirRelatorio(_relatorioDao.PreencherRelatorio(idCliente));
+                exibirRelatorio.Show();
+            }
+            
         }
     }
 }

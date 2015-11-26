@@ -139,6 +139,26 @@ namespace TelasSharpWare
             }
         }
 
+        private void ExivbirRelatorio()
+        {
+            try
+            {
+                int row = pesquisaClienteDgv.Rows.GetRowCount(DataGridViewElementStates.Selected);
+                int id = 0;
+                string idText = "";
+                if (row == 1)
+                {
+                    idText = pesquisaClienteDgv.SelectedRows[0].Cells[0].Value.ToString();
+                    id = Int32.Parse(idText);
+                    _clienteController.AbreRelatorio(id);
+                }
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show(erro.ToString());
+            }
+        }
+
         //Metodos publicos para utilização interna e externa
         public void Pesquisa()
         {
@@ -210,7 +230,7 @@ namespace TelasSharpWare
 
         private void botaoCadCliente1_Click(object sender, EventArgs e)
         {
-            CadastrarCliente cadastroCliente = new CadastrarCliente();
+            CadastrarCliente cadastroCliente = new CadastrarCliente(this);
             cadastroCliente.ShowDialog();
         }
 
@@ -267,6 +287,11 @@ namespace TelasSharpWare
             idTbx.Text = "";
             cpfMbx.Enabled = true;
             cpfMbx.Focus();
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            ExivbirRelatorio();
         }
 
         

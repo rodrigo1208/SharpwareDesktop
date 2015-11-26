@@ -13,10 +13,12 @@ namespace TelasSharpWare
     public partial class CadastrarCliente : Form
     {
         private readonly ClienteController _clienteController;
-        public CadastrarCliente()
+        private PesquisarCliente _pesquisarCliente;
+        public CadastrarCliente(PesquisarCliente pesquisarCliente)
         {
             InitializeComponent();
             _clienteController = new ClienteController();
+            _pesquisarCliente = pesquisarCliente;
         }
 
         // Define the CS_DROPSHADOW constant
@@ -114,6 +116,7 @@ namespace TelasSharpWare
                     cepTbx.Text = "";
                     ufCbx.Text = "";
                     observacaoTbx.Text = "";
+                    _pesquisarCliente.Pesquisa();
                 }
             }
             catch (Exception erro)

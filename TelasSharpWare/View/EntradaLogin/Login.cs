@@ -37,7 +37,7 @@ namespace TelasSharpWare
                 if (_funcionario.TipoFuncionario == TipoFuncionario.Vendedor)
                 {
                     _funcionario = null;
-                    DialogResult = DialogResult.Ignore;
+                    DialogResult = DialogResult.No;
                 }
                 else
                 {
